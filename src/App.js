@@ -6,10 +6,10 @@ function App() {
   return (
     <div>
       <h1>My Todos</h1>
-      {/* Reusing the Todo component multiple times, also interesting comment syntax */}
-      <Todo />
-      <Todo />
-      <Todo />
+      {/* Reusing the Todo component multiple times and passing data via props */}
+      <Todo text='React 1'/>
+      <Todo text='React 2'/>
+      <Todo text='React 3'/>
     </div>
   );
 }
