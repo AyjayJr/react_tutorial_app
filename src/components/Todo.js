@@ -9,10 +9,16 @@ function Todo(props) {
   // use array destructuring to capture the values that useState returns
   const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
-  // nested function for deleting
+  // nested function for deleting a todo item
+  // this will open a modal to confirm or cancel deletion
   function deleteHandler() {
     setModalIsOpen(true);
   }  
+
+  // a function to close the modal that pops up when clicking delete
+  function closeModalHandler() {
+    setModalIsOpen(false);
+  }
 
 
   return (
@@ -23,8 +29,9 @@ function Todo(props) {
         <button className='btn' onClick={deleteHandler}>Delete</button>
       </div>
       {/* use the state value to dynamcally render certain components */}
-      { modalIsOpen && <Modal/> }
-      { modalIsOpen && <Backdrop/> }
+      {/* we pass the state setting function to our components via props */}
+      { modalIsOpen && <Modal onClick={closeModalHandler}/> }
+      { modalIsOpen && <Backdrop onClick={closeModalHandler}/> }
     </div>
   );
 }
